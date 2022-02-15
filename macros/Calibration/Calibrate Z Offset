@@ -1,0 +1,37 @@
+var baseHotOffset = 0.55
+var addlColdOffset = 0.06
+
+G28
+
+G1 Z10 F2400
+M401
+
+;M913 Z50
+
+; probe nozzle to endstop
+G1 X206 Y307.7 F18000
+G92 Z{move.axes[2].userPosition + 5}
+G30 K1 Z-9999
+G1 Z10 F2400
+
+; probe switch body to endstop
+G1 X203.1 Y284 F18000
+G30 K1 S-1
+
+var oldOffset = sensors.probes[0].triggerHeight
+var newOffset = move.axes[2].userPosition + var.baseHotOffset
+
+if heat.heaters[1].current < 160
+  set var.newOffset = var.newOffset + var.addlColdOffset
+
+echo "Potential new offset " ^ var.newOffset
+M402 P0
+G28 Z
+
+;M913 Z100
+G1 Z10 F2400
+M291 P{"Update Z offset to " ^ var.newOffset ^ " from " ^ var.oldOffset ^ "?"} S3
+
+G31 K0 Z{var.newOffset}
+
+M500 P10:31

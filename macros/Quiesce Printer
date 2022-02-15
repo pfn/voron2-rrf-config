@@ -1,0 +1,7 @@
+M291 P"Turn off heaters, fans and motors?" R"Quiesce Printer" S3
+M84 ;disable all motors
+M140 S-273.1 ; turn off bed heater
+G10 P0 S-273.1 ; turn off T0
+M106 P0 S0
+M106 P1 S0
+M291 P"Printer is now completely idle." R"Quiesce Printer" S0 T2
