@@ -114,7 +114,8 @@ G31 K0 P500 X-2.5 Y24.5 Z7.061
 M558 K1 P8 C"^0.io0.out" T18000 F1200:180 H1 A10 S0.005 R0
 G31 K1 P500 X0 Y0 Z0
 
-; ==================================
+; =================================d
+=
 ; Fans
 ; ==================================
 M950 F0 C"0.out6" Q32
@@ -128,6 +129,9 @@ M106 P2 X0.6 H3 L0.5 T35 C"Electronics Fan"
 
 M950 F3 C"0.out3" Q32
 M106 P3 H-1 C"Chamber Exhaust"
+
+M950 F4 C"0.out2" Q32
+M106 P4 H-1 T45 C"Nevermore" ; potential thermostatic control when ABS is loaded
 
 ; Tools
 M563 P0 D0 H1                                    ; define tool 0
