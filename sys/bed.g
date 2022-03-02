@@ -29,3 +29,5 @@ while move.calibration.initial.deviation > 0.005
         continue
 M558 K0 F1200:180
 G28 Z
+
+set global.need_g32 = false

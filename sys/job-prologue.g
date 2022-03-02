@@ -7,15 +7,12 @@ G10 P0 S{param.T} R50; start preheat hotend_0
 M140 S{param.H} ; start preheating the bed
 M190 S{param.H}
 
-var need_g32 = false
-
 if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
-  set var.need_g32 = true
   G28
   if result != 0
     abort "Homing failed"
 
-if var.need_g32
+if global.need_g32
   G32
   if result != 0
     abort "QGL failed"

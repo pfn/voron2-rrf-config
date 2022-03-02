@@ -1,0 +1,1 @@
+global need_g32 = true
