@@ -128,7 +128,7 @@ M950 F2 C"0.out4" Q32
 M106 P2 X0.6 H3 L0.5 T35 C"Electronics Fan" 
 
 M950 F3 C"0.out3" Q32
-M106 P3 H10 T50:70 L0.2 C"Chamber Exhaust"
+M106 P3 H10 T55:70 L0.2 C"Chamber Exhaust"
 
 M950 F4 C"0.out2" Q32
 M106 P4 H-1 T55 C"Nevermore" ; potential thermostatic control when ABS is loaded
