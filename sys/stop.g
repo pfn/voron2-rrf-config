@@ -24,3 +24,4 @@ M144
 M140 S-273.1 ; turn off bed heater
 G92 E0 ; reset extrusion position
 M84 ; stop all motors
+echo >>"job-history.csv" """" ^ job.lastFileName ^ """," ^ state.time ^ "," ^ job.lastDuration ^ ",1"
