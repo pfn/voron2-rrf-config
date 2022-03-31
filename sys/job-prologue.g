@@ -1,4 +1,9 @@
 M98 R1
+
+if !exists(global.probe_block_detach)
+  global probe_block_detach = false
+set global.probe_block_detach = false
+
 G21 ;metric values
 G90 ;absolute positioning
 M83 ;relative extrusion
@@ -12,6 +17,8 @@ if param.H >= 100
   while heat.heaters[0].avgPwm > 0.28
     G4 S60
 
+set global.probe_block_detach = true
+
 if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
   G28
   if result != 0
@@ -21,6 +28,8 @@ if global.need_g32
   G32
   if result != 0
     abort "QGL failed"
+
+set global.probe_block_detach = false
 
 G29
 

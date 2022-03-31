@@ -21,7 +21,7 @@ button R0 C0 F0 V5 W42 T"Print" A"menu selectSD"
 image V5 L"imgs/vline.img"
 button V5 W42 T"Move" A"menu moveAxis"
 image V5 L"imgs/vline.img"
-button V5 W42 T"Menu" A"menu mainMenu"
+button V5 W42 T"Macros" A"menu macros"
 
 
 ; --------------- "Printing" Menu Buttons ---------------
@@ -33,7 +33,7 @@ button W64 V2 T"Info" A"menu printInfo"
 ; --------------- "Paused" Menu Buttons ---------------
 button R0 C0 F0 W42 V6 T"Resume" A"M24"
 image V6 L"imgs/vline.img"
-button W42 V6 T"Menu" A"menu mainMenu"
+button W42 V6 T"Macros" A"menu macros"
 image V6 L"imgs/vline.img"
 button W42 V6 T"Abort" A"menu confirmAbort"
 
