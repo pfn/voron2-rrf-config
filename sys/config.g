@@ -79,7 +79,7 @@ M557 X30:270 Y30:270 P5                     ; Define bed mesh grid (inductive pr
 ; Bed heater
 ; ==================================
 M308 S0 A"Bed Heater" P"temp0" Y"thermistor" T100000 B3950
-M950 H0 C"out0" Q10 T0
+M950 H0 C"out0" Q24 T0
 M140 H0
 M143 H0 S120 ; 120C limit on bed
 

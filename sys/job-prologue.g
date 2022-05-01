@@ -14,6 +14,7 @@ M140 S{param.H} ; start preheating the bed
 M190 S{param.H}
 
 if param.H >= 100
+  echo "Waiting for bed heater to settle"
   while heat.heaters[0].avgPwm > 0.28
     G4 S60
 
@@ -23,6 +24,8 @@ if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
   G28
   if result != 0
     abort "Homing failed"
+else
+  G28 Z
 
 if global.need_g32
   G32

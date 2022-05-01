@@ -1,5 +1,3 @@
-set global.need_g32 = true
-
 M18 Z
 M17 Z
 G4 P150

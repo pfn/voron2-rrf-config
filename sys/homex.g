@@ -11,10 +11,8 @@ if !move.axes[1].homed
 G91
 G1 Y10 X-10 H2 F9000
 ;G1 Y-10 H2 F2400
-G90
 
 ; Move quickly to X axis endstop and stop there (first pass)
-G91
 G1 X305 F9000 H1
 ; Go back a few mm
 ;M119

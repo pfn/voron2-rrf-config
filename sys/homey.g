@@ -10,8 +10,8 @@ G92 Y0
 ; Move quickly to Y axis endstop and stop there (first pass)
 G1 Y315 F9000 H1
 
-; Go back a few mm
 G91
+; Go back a few mm
 G1 Y-5 F18000
 
 ; Move slowly to Y axis endstop once more (second pass)
