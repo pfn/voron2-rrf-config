@@ -14,11 +14,9 @@ while iterations < 10
   G30 K0 P1 X30  Y270 Z-99999
   G30 K0 P2 X270 Y270 Z-99999
   G30 K0 P3 X270 Y30  Z-99999 S4
+  echo "Deviation: ", move.calibration.initial.deviation, " iteration: ", iterations + 1
   if move.calibration.initial.deviation < 0.006
     break
-  echo "Deviation: ", move.calibration.initial.deviation, " iteration: ", iterations + 1
   
-M558 K0 F1200:180
+M558 K0 H2 F1200:180
 G28 Z
-
-set global.need_g32 = false

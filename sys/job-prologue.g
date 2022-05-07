@@ -20,8 +20,10 @@ if param.H >= 100
 
 set global.probe_block_detach = true
 
+var need_g32 = false
+
 if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
-  set global.need_g32 = true
+  set var.need_g32 = true
   G28
   if result != 0
     abort "Homing failed"
@@ -31,7 +33,7 @@ else
     abort "Homing failed"
 
 
-if global.need_g32
+if var.need_g32
   G32
   if result != 0
     abort "QGL failed"

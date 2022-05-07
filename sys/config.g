@@ -140,6 +140,4 @@ G10 P0 R0 S0                                     ; set initial tool 0 active and
 
 M912 P0 S-8.9 ; calibrate mcu temperature offset
 
-M98 P"k/globals.g"
-
 M501

@@ -39,7 +39,7 @@ M569 P0.2 S0 D3 V0
 M569 P0.3 S1 D3 V0
 M569 P0.4 S0 D2
 M569 P0.5 S0 D2
-M569 P0.6 S0 D2
+M569 P0.6 S1 D2
 
 M584 X0.4 Y0.5 Z0.0:0.1:0.2:0.3 E0.6
 M350 X16 Y16 Z16 E16 I1                          ; configure microstepping with interpolation
