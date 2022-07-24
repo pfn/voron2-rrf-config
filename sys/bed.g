@@ -17,6 +17,8 @@ while iterations < 10
   echo "Deviation: ", move.calibration.initial.deviation, " iteration: ", iterations + 1
   if move.calibration.initial.deviation < 0.006
     break
-  
+if move.calibration.initial.deviation > 0.006
+  echo "Excessive deviation"
+  abort
 M558 K0 H2 F1200:180
 G28 Z

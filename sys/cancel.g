@@ -8,4 +8,4 @@ G1 E2 F3600 ; unretract previous amount before ramming
 G1 E5 F400
 G1 E-15 F3600
 
-echo >>"job-history.csv" """" ^ job.lastFileName ^ """," ^ state.time ^ "," ^ job.lastDuration ^ ",0"
+echo >>"job-history.csv" global.cancel_statistics

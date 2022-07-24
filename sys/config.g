@@ -1,4 +1,6 @@
 ; General preferences
+M929 P"eventlog.txt" S2
+
 ;M80 C"!pson"            ; pson
 G21                    	; Work in millimetres
 G90                     ; send absolute coordinates...
