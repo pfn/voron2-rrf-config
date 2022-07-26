@@ -1,7 +1,7 @@
 ; Pause macro file
 if !exists(global.cancel_statistics)
   global cancel_statistics = ""
-set global.cancel_statistics = """" ^ job.file.fileName ^ """," ^ state.time ^ "," ^ job.duration ^ ",0," ^ floor(job.rawExtrusion)
+set global.cancel_statistics = """" ^ job.file.fileName ^ """," ^ state.time ^ "," ^ job.duration ^ ",0," ^ job.rawExtrusion
 
 M83					; relative extruder moves
 G1 E-3 F2500		; retract 3mm
