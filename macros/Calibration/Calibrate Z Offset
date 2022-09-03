@@ -1,4 +1,4 @@
-var baseHotOffset = 0.55
+var baseHotOffset = 0.65
 var addlColdOffset = 0.06
 
 G28
