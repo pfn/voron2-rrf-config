@@ -1,0 +1,8 @@
+.rrf_mirror
+job-history.csv
+eventlog.txt
+resurrect.g
+heightmap.csv
+filaments.csv
+config.g.bak
+sys/*.json

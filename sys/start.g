@@ -1,3 +1,7 @@
+if !exists(global.filament_error)
+  global filament_error = 0
+set global.filament_error = 0
+
 M106 P0 S0 ; layer fan off
 M220 S100 ; reset speed factor to 100%
 M221 D0 S100

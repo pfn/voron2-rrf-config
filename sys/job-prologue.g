@@ -41,6 +41,8 @@ if var.need_g32
 set global.probe_block_detach = false
 
 G29
+if result != 0
+  abort "Mesh failed"
 
 M116 P0
 

@@ -22,3 +22,5 @@ if move.calibration.initial.deviation > 0.006
   abort
 M558 K0 H2 F1200:180
 G28 Z
+if result != 0
+  abort "Post leveling probe failed"
