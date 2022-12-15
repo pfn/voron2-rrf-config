@@ -57,7 +57,7 @@ alter C70 N100 W20
 text T"°C"
 
 ; Fan Speed
-image R38 C25 L"imgs/fan.img"
+image R38 C25 L"imgs/temperature.img"
 value C52 N90 W20 H1
 text T"°C"
 
