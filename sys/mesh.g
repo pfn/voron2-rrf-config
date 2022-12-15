@@ -7,4 +7,6 @@ G29 S2
 ;G92 Z15
 ;G30 K0 Z-99999
 G29 S0
+if result != 0
+  abort "Mesh probing failed"
 M402

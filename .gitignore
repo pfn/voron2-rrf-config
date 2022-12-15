@@ -1,5 +1,6 @@
 .rrf_mirror
 job-history.csv
+config-override.g
 eventlog.txt
 resurrect.g
 heightmap.csv

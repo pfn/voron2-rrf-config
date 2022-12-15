@@ -2,6 +2,7 @@
 ; pulse-counting filament sensor is overly sensitive
 
 M591 D0
+M591 D0 S1
 
 if !exists(global.filament_error)
   global filament_error = job.rawExtrusion
