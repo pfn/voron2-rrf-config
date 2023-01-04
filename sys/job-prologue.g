@@ -32,6 +32,11 @@ else
   if result != 0
     abort "Homing failed"
 
+set global.probe_block_detach = false
+M402
+M98 P"k/brush-nozzle.g"
+M401
+set global.probe_block_detach = true
 
 if var.need_g32
   G32
@@ -40,7 +45,10 @@ if var.need_g32
 
 set global.probe_block_detach = false
 
-G29
+if var.need_g32
+  G29
+M402
+
 if result != 0
   abort "Mesh failed"
 

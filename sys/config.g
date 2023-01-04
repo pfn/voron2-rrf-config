@@ -139,7 +139,7 @@ M106 P4 H-1 T55 C"Nevermore" ; potential thermostatic control when ABS is loaded
 M563 P0 D0 H1                                    ; define tool 0
 G10 P0 X0 Y0 Z0                                  ; set tool 0 axis offsets
 G10 P0 R0 S0                                     ; set initial tool 0 active and standby temperatures to 0C
-M591 D0 P7 C"io2.in" S1 R80:200 E5 A0 L1.415
+M591 D0 P7 C"io2.in" S1 R30:1000 E5 A0 L1.415
 
 M912 P0 S-8.9 ; calibrate mcu temperature offset
 

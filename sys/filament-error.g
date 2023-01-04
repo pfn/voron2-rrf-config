@@ -1,8 +1,15 @@
 ; filament runout script to reduce false positives
 ; pulse-counting filament sensor is overly sensitive
 
-M591 D0
-M591 D0 S1
+if sensors.filamentMonitors[0].calibrated != null && sensors.filamentMonitors[0].calibrated.percentMin > 15
+  echo "Ignoring extrusion error, not <15%"
+  M591 D0
+  M591 D0 S1
+  M99
+
+if sensors.filamentMonitors[0].calibrated != null
+  M591 D0
+  M591 D0 S1
 
 if !exists(global.filament_error)
   global filament_error = job.rawExtrusion

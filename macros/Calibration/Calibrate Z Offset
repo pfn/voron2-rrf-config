@@ -16,10 +16,17 @@ G1 Z10 F2400
 
 ; probe switch body to endstop
 G1 X203.1 Y284 F18000
-G30 K1 S-1
+M558 K1 F120
+
+var lastStopHeight = -1
+while abs(sensors.probes[1].lastStopHeight - var.lastStopHeight) > 0.005
+  set var.lastStopHeight = sensors.probes[1].lastStopHeight
+  G30 K1 S-1
+  G1 Z10 F2400
+  echo "Last stop height: " ^ sensors.probes[1].lastStopHeight
 
 var oldOffset = sensors.probes[0].triggerHeight
-var newOffset = move.axes[2].userPosition + var.baseHotOffset
+var newOffset = var.lastStopHeight + var.baseHotOffset
 
 if heat.heaters[1].current < 160
   set var.newOffset = var.newOffset + var.addlColdOffset
