@@ -12,10 +12,10 @@ button R37 C1 F0 H0 V5 T"- Move Front" A"M98 P#0" L"/macros/Move to Front"
 button R49 C1 F0 H0 V5 T"- Move Center" A"M98 P#0" L"/macros/Move to Center"
 
 
-button R13 C64 F0 H0 V5 T"- Calibrate Z" A"M98 P#0" L"/macros/Calibration/Calibrate Z Offset"
+button R13 C64 F0 H0 V5 T"- Brush" A"M98 P#0" L"/macros/Brush Nozzle"
 button R25 C64 F0 H0 V5 T"- Save Z" A"M98 P#0" L"/macros/Calibration/Save Z Offset"
-button R37 C64 F0 H0 V5 T"- Brush" A"M98 P#0" L"/macros/Brush Nozzle"
-button R49 C64 F0 H0 V5 T"- QGL & Mesh" A"G32|G29"
+button R37 C64 F0 H0 V5 T"- Bed On" A"M140 S0"
+button R49 C64 F0 H0 V5 T"- QGL & Mesh" A"M98 P#0" L"/macros/Calibration/Probe Cycle"
 
 
 ; --------------- Show Macros ---------------
