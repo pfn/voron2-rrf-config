@@ -1,0 +1,22 @@
+; --------------- Header ---------------
+text R0 C0 W42 F0 H1 T"Actions"
+image V5 L"imgs/vline.img"
+button V5 W42 T"Macros" A"menu macros"
+image V5 L"imgs/vline.img"
+button V5 W42 T"Back" A"return"
+image R11 C0 L"imgs/hline.img"
+
+button R13 C1 F0 H0 V5 T"- Motors Off" A"M98 P#0" L"/macros/Turn Off Motors"
+button R25 C1 F0 H0 V5 T"- Quiesce" A"M98 P#0" L"/macros/Quiesce Printer"
+button R37 C1 F0 H0 V5 T"- Move Front" A"M98 P#0" L"/macros/Move to Front"
+button R49 C1 F0 H0 V5 T"- Move Center" A"M98 P#0" L"/macros/Move to Center"
+
+
+button R13 C64 F0 H0 V5 T"- Calibrate Z" A"M98 P#0" L"/macros/Calibration/Calibrate Z Offset"
+button R25 C64 F0 H0 V5 T"- Save Z" A"M98 P#0" L"/macros/Calibration/Save Z Offset"
+button R37 C64 F0 H0 V5 T"- Brush" A"M98 P#0" L"/macros/Brush Nozzle"
+button R49 C64 F0 H0 V5 T"- QGL & Mesh" A"G32|G29"
+
+
+; --------------- Show Macros ---------------
+;files R15 C5 F0 N4 I"0:/macros/" A"M98 P#0"

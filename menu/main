@@ -17,11 +17,11 @@
 
 
 ; --------------- "Not Printing" Menu Buttons ---------------
-button R0 C0 F0 V5 W42 T"Print" A"menu listFilesSD0"
+button R0 C0 F0 V5 W42 T"Actions" A"menu actions"
 image V5 L"imgs/vline.img"
 button V5 W42 T"Move" A"menu moveAxis"
 image V5 L"imgs/vline.img"
-button V5 W42 T"Macros" A"menu macros"
+button V5 W42 T"Print" A"menu listFilesSD0"
 
 
 ; --------------- "Printing" Menu Buttons ---------------
@@ -33,7 +33,7 @@ button W64 V2 T"Info" A"menu printInfo"
 ; --------------- "Paused" Menu Buttons ---------------
 button R0 C0 F0 W42 V6 T"Resume" A"M24"
 image V6 L"imgs/vline.img"
-button W42 V6 T"Macros" A"menu macros"
+button W42 V6 T"Macros" A"menu actions"
 image V6 L"imgs/vline.img"
 button W42 V6 T"Abort" A"menu confirmAbort"
 
@@ -42,24 +42,39 @@ button W42 V6 T"Abort" A"menu confirmAbort"
 ; Note: this section may need modified if you use different heater and fan numbers.
 image R11 C0 L"imgs/hline.img"
 
+image R14 C30 L"imgs/bed.img"
+image C60 L"imgs/temp.img"
+image C90 L"imgs/temperature.img"
+value R26 C20 N80 W20 H2
+text T"°"
+value N0 C50 W20 H2
+text T"°"
+value C80 N90 W20 H2
+text T"°"
+
+; Babystepping
+image R38 C30 L"imgs/zstep.img"
+alter C55 D2 N521 W25 H2
+text T" mm"
+
 ; Bed Temp
-image R14 C25 L"imgs/bed.img"
-value C40 N80 W20 H2
-text T" / "
-alter R14 C70 N180 W20
-text T"°C"
+;image R14 C25 L"imgs/bed.img"
+;value C40 N80 W20 H2
+;text T" / "
+;alter R14 C70 N180 W20
+;text T"°C"
 
 ; Hotend Temp
-image R26 C25 L"imgs/temp.img"
-value N0 C40 W20 H2
-text T" / "
-alter C70 N100 W20
-text T"°C"
+;image R26 C25 L"imgs/temp.img"
+;value N0 C40 W20 H2
+;text T" / "
+;alter C70 N100 W20
+;text T"°C"
 
-; Fan Speed
-image R38 C25 L"imgs/temperature.img"
-value C52 N90 W20 H1
-text T"°C"
+; Chamber Temperature
+;image R38 C25 L"imgs/temperature.img"
+;value C52 N90 W20 H1
+;text T"°C"
 
 ; --------------- Scroll Button ---------------
 button R25 C104 F1 T" » " A"menu altMain"
