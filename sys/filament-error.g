@@ -16,7 +16,7 @@ if !exists(global.filament_error)
   echo "Ignoring Initial"
   M99
 
-if global.filament_error == 0
+if global.filament_error < 0
   set global.filament_error = job.rawExtrusion
   echo "Ignoring First"
   M99

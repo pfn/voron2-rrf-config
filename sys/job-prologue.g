@@ -9,7 +9,7 @@ G90 ;absolute positioning
 M83 ;relative extrusion
 M107 ;start with the fan off
 G92 E0 ;zero the extruded length
-G10 P0 S{param.T} R50; start preheat hotend_0
+;G10 P0 S{param.T} R50; start preheat hotend_0
 M140 S{param.H} ; start preheating the bed
 M190 S{param.H}
 
@@ -32,18 +32,19 @@ else
   if result != 0
     abort "Homing failed"
 
-set global.probe_block_detach = false
-M402
-M98 P"k/brush-nozzle.g"
-M401
-set global.probe_block_detach = true
-
 if var.need_g32
+  set global.probe_block_detach = false
+  M402
+  M98 P"k/brush-nozzle.g"
+  M401
+  set global.probe_block_detach = true
   G32
   if result != 0
     abort "QGL failed"
 
 set global.probe_block_detach = false
+
+G10 P0 S{param.T} R50; start preheat hotend_0 can be later because rapido heats so rapidly
 
 if var.need_g32
   G29
