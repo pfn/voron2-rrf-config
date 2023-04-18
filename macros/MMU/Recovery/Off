@@ -1,0 +1,2 @@
+M84 E0 U V
+M42 P{global.mmu_servo_num} S0

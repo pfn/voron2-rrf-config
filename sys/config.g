@@ -145,3 +145,4 @@ M591 D0 P7 C"io2.in" S1 R30:1000 E5 A0 L1.415
 M912 P0 S-8.9 ; calibrate mcu temperature offset
 
 M501
+M98 P"mmu/lib/init.g"
