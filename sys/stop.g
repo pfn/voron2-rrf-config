@@ -15,7 +15,7 @@ if move.axes[2].userPosition > 265 ; safe height for Z hop when homing and preve
   G1 Z265 F4800
 
 G1 E2 F3600 ; unretract previous amount before ramming
-G1 E5 F400
+G1 E1 F400
 G1 E-15 F3600
 ;G1 Y300 F18000 ; move away from the probe dock to prevent collision
 

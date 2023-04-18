@@ -101,8 +101,9 @@ M308 S3 A"MCU" Y"mcu-temp"
 ; ==================================
 ; CHAMBER SENSOR 
 ; ==================================
-M308 S10 A"Chamber" P"0.temp2" Y"thermistor" T10000 B3950
-M950 H9 C"io6.in" Q1 T10
+M308 S9 A"Chamber" P"1.temp0" Y"thermistor" T100000 B4267
+M308 S10 A"PrintHead" P"0.temp2" Y"thermistor" T10000 B3950
+M950 H9 C"io6.in" Q1 T9
 M141 H9 ; fake chamber heater for reporting in DWC
 
 ; ==================================
@@ -120,7 +121,7 @@ G31 K1 P500 X0 Y0 Z0
 =
 ; Fans
 ; ==================================
-M950 F0 C"0.out6" Q32
+M950 F0 C"1.out6" Q32
 M106 P0 S0 H-1 C"Part Cooling"
 
 M950 F1 C"0.out5"
@@ -129,8 +130,8 @@ M106 P1 S1 H1 T45 C"Hotend Cooling"
 M950 F2 C"0.out4" Q32
 M106 P2 X0.6 H3 L0.5 T35 C"Electronics Fan" 
 
-M950 F3 C"0.out3" Q32
-M106 P3 H10 T55:70 L0.2 C"Chamber Exhaust"
+M950 F3 C"0.out3" Q400
+M106 P3 H-1 B0 C"Daylight"
 
 M950 F4 C"0.out2" Q32
 M106 P4 H-1 T55 C"Nevermore" ; potential thermostatic control when ABS is loaded
