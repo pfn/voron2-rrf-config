@@ -7,3 +7,6 @@ heightmap.csv
 filaments.csv
 config.g.bak
 sys/*.json
+sys/trigger2.g
+sys/trigger3.g
+sys/mmu/lib/selector-state.g
