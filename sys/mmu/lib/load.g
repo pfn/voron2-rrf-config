@@ -2,8 +2,10 @@ M98 R1
 
 if state.macroRestarted
   if !global.mmu_extruder_loaded
+    var err = "Filament not yet loaded: T" ^ global.mmu_selector_pos
     if state.status == "processing"
-      M291 P{"Filament not yet loaded: T" ^ global.mmu_selector_pos} R"Load Filament" S1 T0
+      echo var.err
+      M291 P{var.err} R"Load Filament" S1 T0
       M98 R1
       M226
   M99

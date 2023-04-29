@@ -130,8 +130,8 @@ M106 P1 S1 H1 T45 C"Hotend Cooling"
 M950 F2 C"0.out4" Q32
 M106 P2 X0.6 H3 L0.5 T35 C"Electronics Fan" 
 
-M950 F3 C"0.out3" Q400
-M106 P3 H-1 B0 C"Daylight"
+M950 F3 C"0.out3" Q25000
+M106 P3 S1 H1 L0 T45:100 B0 C"Daylight"
 
 M950 F4 C"0.out2" Q32
 M106 P4 H-1 T55 C"Nevermore" ; potential thermostatic control when ABS is loaded

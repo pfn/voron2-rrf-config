@@ -1,3 +1,13 @@
+M98 R1
+
+if state.macroRestarted
+  if !global.mmu_extruder_loaded
+    if state.status == "processing"
+      M291 P{"Filament not yet loaded: T" ^ global.mmu_selector_pos} R"Load Filament" S1 T0
+      M98 R1
+      M226
+  M99
+
 var sAxis = -1
 var eAxis = -1
 
@@ -16,4 +26,11 @@ var gpTriggered = #sensors.gpIn > global.mmu_selector_trigger && sensors.gpIn[gl
 var sAxisTriggered = sensors.endstops[var.sAxis] != null && !sensors.endstops[var.sAxis].triggered
 var eAxisTriggered = sensors.endstops[var.eAxis] != null && !sensors.endstops[var.eAxis].triggered
 if  var.gpTriggered || var.sAxisTriggered || var.eAxisTriggered
-  abort "Selector/Filament endstop is is not triggered"
+  var errmsg = "Filament not yet unloaded: T" ^ global.mmu_selector_pos
+  echo var.errmsg
+  if state.status == "processing"
+    M291 P{var.errmsg} R"Load Filament" S1 T0
+    M98 R1
+    M226
+  else
+    abort "Selector/Filament endstop is is not triggered"

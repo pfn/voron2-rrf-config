@@ -1,3 +1,13 @@
+M98 R1
+
+if state.macroRestarted
+  if !global.mmu_extruder_loaded
+    if state.status == "processing"
+      M291 P{"Filament not yet loaded: T" ^ global.mmu_selector_pos} R"Load Filament" S1 T0
+      M98 R1
+      M226
+  M99
+
 M98 P"mmu/lib/filament-runout.g"
 M98 P"mmu/lib/assert-endstop.g"
 M98 P"mmu/lib/engage.g"
@@ -9,7 +19,14 @@ var pulse_count = global.mmu_pulse_count
 M98 P"mmu/lib/buzz.g"
 if var.pulse_count != global.mmu_pulse_count
   M98 P"mmu/lib/disengage.g"
-  abort "Filament already loaded, unload past monitor first"
+  var errmsg = "Filament already loaded, unload past monitor first"
+  if state.status == "processing"
+    echo var.errmsg
+    M291 P{var.errmsg} R"Load Filament" S1 T0
+    M98 R1
+    M226
+  else
+    abort var.errmsg
 
 echo >{global.mmu_tmp_file} "M574 S1 " ^ global.mmu_extruder_axis ^ "2" ^ " P""!" ^ global.mmu_selector_endstop_pin ^ """"
 echo >>{global.mmu_tmp_file} "M208 S1 " ^ global.mmu_extruder_axis ^ "-9999"

@@ -11,6 +11,12 @@ M107 ;start with the fan off
 G92 E0 ;zero the extruded length
 ;G10 P0 S{param.T} R50; start preheat hotend_0
 M140 S{param.H} ; start preheating the bed
+
+var mmu = false
+if exists(param.S)
+  set var.mmu = true
+  M98 P"mmu/lib/load-tool.g" T{param.S}
+
 M190 S{param.H}
 
 if param.H >= 100
@@ -54,6 +60,9 @@ if result != 0
   abort "Mesh failed"
 
 M116 P0
+
+if var.mmu
+  G1 E50 F300
 
 M98 P"k/clean-nozzle.g"
 G1 X297 Y150 Z1 F12000
