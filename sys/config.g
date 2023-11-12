@@ -15,6 +15,7 @@ M564 S1 H1             	; Forbid axis movements when not homed
 ; Fysetc 12864 display Color
 ; ==================================
 
+M950 E0 C"led" T1 Q3000000   ; create a RGB Neopixel LED strip on the LED port and set SPI frequency to 3MHz
 M918 P2 C30 E-4 F1000000   	; Configure direct-connect display
 M150 X2 R255 U128 B255 P64 S1 F1
 M150 X2 R255 U0 B255 P64 S1 F1
@@ -81,7 +82,7 @@ M557 X30:270 Y30:270 P5                     ; Define bed mesh grid (inductive pr
 ; Bed heater
 ; ==================================
 M308 S0 A"Bed Heater" P"temp0" Y"thermistor" T100000 B3950
-M950 H0 C"out0" Q24 T0
+M950 H0 C"out0" Q60 T0
 M140 H0
 M143 H0 S120 ; 120C limit on bed
 
@@ -117,8 +118,7 @@ G31 K0 P500 X-2.5 Y24.5 Z7.061
 M558 K1 P8 C"^0.io0.out" T18000 F1200:180 H1 A10 S0.005 R0
 G31 K1 P500 X0 Y0 Z0
 
-; =================================d
-=
+; ==================================
 ; Fans
 ; ==================================
 M950 F0 C"1.out6" Q32
@@ -140,7 +140,7 @@ M106 P4 H-1 T55 C"Nevermore" ; potential thermostatic control when ABS is loaded
 M563 P0 D0 H1                                    ; define tool 0
 G10 P0 X0 Y0 Z0                                  ; set tool 0 axis offsets
 G10 P0 R0 S0                                     ; set initial tool 0 active and standby temperatures to 0C
-M591 D0 P7 C"io2.in" S1 R30:1000 E5 A0 L1.415
+;M591 D0 P7 C"io2.in" S1 R30:1000 E5 A0 L1.415
 
 M912 P0 S-8.9 ; calibrate mcu temperature offset
 

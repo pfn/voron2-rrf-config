@@ -18,11 +18,15 @@ if exists(param.S)
   M98 P"mmu/lib/load-tool.g" T{param.S}
 
 M190 S{param.H}
+var rollingAverage = heat.heaters[0].avgPwm
+var sampleCount = 60
 
-if param.H >= 100
-  while heat.heaters[0].avgPwm > 0.28
-    echo "Waiting for bed heater to settle"
-    G4 S60
+if heat.heaters[0].state == "active" && heat.heaters[0].active >= 100
+  while iterations < 10 || var.rollingAverage > 0.28
+    G4 S1
+    set var.rollingAverage = var.rollingAverage - var.rollingAverage / var.sampleCount + heat.heaters[0].avgPwm / var.sampleCount
+    if mod(iterations, 60) == 0
+      echo "Waiting for bed heater to settle: " ^ var.rollingAverage ^ " > 0.28"
 
 set global.probe_block_detach = true
 
