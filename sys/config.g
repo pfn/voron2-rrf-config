@@ -15,11 +15,11 @@ M564 S1 H1             	; Forbid axis movements when not homed
 ; Fysetc 12864 display Color
 ; ==================================
 
-M950 E0 C"led" T1 Q3000000   ; create a RGB Neopixel LED strip on the LED port and set SPI frequency to 3MHz
+M950 E0 C"io3.out" T1 Q3000000   ; create a RGB Neopixel LED strip on the LED port and set SPI frequency to 3MHz
 M918 P2 C30 E-4 F1000000   	; Configure direct-connect display
-M150 X2 R255 U128 B255 P64 S1 F1
-M150 X2 R255 U0 B255 P64 S1 F1
-M150 X2 R200 U128 B255 P200 S1 F0
+M150 E0 R255 U128 B255 P64 S1 F1
+M150 E0 R255 U0 B255 P64 S1 F1
+M150 E0 R200 U128 B255 P200 S1 F0
 
 ; ================================== 
 ; NETWORK
