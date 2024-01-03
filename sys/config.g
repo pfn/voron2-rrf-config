@@ -1,4 +1,5 @@
 ; General preferences
+;;; reference toolboard pins from https://github.com/jaysuk/Duet3Expansion/blob/3.5-dev/src/Config/FlySB2040v1_0.h
 M929 P"eventlog.txt" S2
 
 ;M80 C"!pson"            ; pson
@@ -42,9 +43,10 @@ M569 P0.2 S0 D3 V0
 M569 P0.3 S1 D3 V0
 M569 P0.4 S0 D2
 M569 P0.5 S0 D2
-M569 P0.6 S0 D2
+;M569 P0.6 S0 D2
+M569 P124.0 S1 D2
 
-M584 X0.4 Y0.5 Z0.0:0.1:0.2:0.3 E0.6
+M584 X0.4 Y0.5 Z0.0:0.1:0.2:0.3 E124.0
 M350 X16 Y16 Z16 E16 I1                          ; configure microstepping with interpolation
 M92 X160.00 Y160.00 Z400.00 E416.67                ; set steps per mm
 
@@ -65,11 +67,11 @@ M84 S30                        ; Idle timeout
 ; ==================================
 
 ; Endstops
-M574 X2 S1 P"^0.io1.in"
-M574 Y2 S1 P"^0.io1.out"
+M574 X2 S1 P"^124.io2.in"
+M574 Y2 S1 P"^0.io1.in"
 
 ; Axis travel limits
-M208 X0:299 Y0:308 Z0:281
+M208 X0:302 Y0:309 Z0:281
 
 ; Belt Locations
 M671 X-65:-65:365:365 Y0:395:395:0 S20      ; Define Z belts locations (Front_Left, Back_Left, Back_Right, Front_Right)
@@ -89,8 +91,8 @@ M143 H0 S120 ; 120C limit on bed
 ; ==================================
 ; Hotend heater 
 ; ==================================
-M308 S1 P"0.temp1" Y"pt1000" A"Nozzle"
-M950 H1 C"0.out1" T1
+M308 S1 P"124.temp0" Y"pt1000" R1000 A"Nozzle"
+M950 H1 C"124.out0" T1
 M143 H1 S350 ; 350C limit on nozzle
 
 ; ==================================
@@ -111,7 +113,7 @@ M141 H9 ; fake chamber heater for reporting in DWC
 ; Z probes
 
 ; quickdraw
-M558 K0 P8 C"^0.io0.in" T18000 F600:180 H2 A10 S0.01
+M558 K0 P8 C"^124.io1.in" T18000 F600:180 H2 A10 S0.01
 G31 K0 P500 X-2.5 Y24.5 Z7.061
 
 ; nozzle probe
@@ -121,10 +123,10 @@ G31 K1 P500 X0 Y0 Z0
 ; ==================================
 ; Fans
 ; ==================================
-M950 F0 C"1.out6" Q32
+M950 F0 C"124.out1" Q32
 M106 P0 S0 H-1 C"Part Cooling"
 
-M950 F1 C"0.out5"
+M950 F1 C"124.out2"
 M106 P1 S1 H1 T45 C"Hotend Cooling"
 
 M950 F2 C"0.out4" Q32
@@ -141,8 +143,12 @@ M563 P0 D0 H1                                    ; define tool 0
 G10 P0 X0 Y0 Z0                                  ; set tool 0 axis offsets
 G10 P0 R0 S0                                     ; set initial tool 0 active and standby temperatures to 0C
 ;M591 D0 P7 C"io2.in" S1 R30:1000 E5 A0 L1.415
+;M591 D0 P3 C"124.io0.in" S1 R70:200 E3 A0 L24
 
 M912 P0 S-8.9 ; calibrate mcu temperature offset
+M950 E1 C"124.rgbled" T2 Q2000000
+M98 P"k/toolhead-leds.g"
 
+M593 P"zvd" F40
 M501
-M98 P"mmu/lib/init.g"
+;M98 P"mmu/lib/init.g"

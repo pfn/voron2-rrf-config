@@ -9,13 +9,13 @@ M401
 ;M913 Z50
 
 ; probe nozzle to endstop
-G1 X208.7 Y307.0 F18000
+G1 X208.8 Y309.0 F18000
 G92 Z{move.axes[2].userPosition + 5}
 G30 K1 Z-9999
 G1 Z10 F2400
 
 ; probe switch body to endstop
-G1 X203.1 Y284 F18000
+G1 X205.1 Y284.7 F18000
 M558 K1 F120
 
 var lastStopHeight = -1

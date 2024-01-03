@@ -1,8 +1,10 @@
 if !move.axes[0].homed || !move.axes[1].homed || !move.axes[2].homed
-  abort "Please home printer before cleaning the nozzle"
+  echo "Please home printer before cleaning the nozzle"
+  M99
 
 if heat.heaters[1].current < 190
-  abort "Not cleaning a cold nozzle"
+  echo "Not cleaning a cold nozzle"
+  M99
 
 G1 Z5 F2400
 

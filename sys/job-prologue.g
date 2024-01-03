@@ -9,6 +9,7 @@ G90 ;absolute positioning
 M83 ;relative extrusion
 M107 ;start with the fan off
 G92 E0 ;zero the extruded length
+M150 E1 R255 P192 S1 F0
 ;G10 P0 S{param.T} R50; start preheat hotend_0
 M140 S{param.H} ; start preheating the bed
 
@@ -27,6 +28,8 @@ if heat.heaters[0].state == "active" && heat.heaters[0].active >= 100
     set var.rollingAverage = var.rollingAverage - var.rollingAverage / var.sampleCount + heat.heaters[0].avgPwm / var.sampleCount
     if mod(iterations, 60) == 0
       echo "Waiting for bed heater to settle: " ^ var.rollingAverage ^ " > 0.28"
+
+M150 E1 U255 B255 P192 S1 F0
 
 set global.probe_block_detach = true
 
@@ -72,3 +75,4 @@ M98 P"k/clean-nozzle.g"
 G1 X297 Y150 Z1 F12000
 G1      Y50 Z{param.L} E30 F500 ;intro line
 G92 E0 ;zero the extruded length again
+M150 E1 W255 P192 S1 F0
