@@ -11,6 +11,7 @@ echo >>{global.mmu_tmp_file} "M208 S1 " ^ global.mmu_selector_axis ^ global.mmu_
 echo >>{global.mmu_tmp_file} "M208 S0 " ^ global.mmu_selector_axis ^ global.mmu_selector_axis_max ^ " " ^ global.mmu_extruder_axis ^ "9999"
 M98 P"mmu/lib/execute-tmp.g"
 M591 D0 S0 P0
-M950 J{global.mmu_encoder_trigger} C"nil"
+
+;M950 J{global.mmu_encoder_trigger} C"nil"
 M98 P"mmu/lib/filament-sensing.g"
 M98 P"mmu/lib/filament-runout.g"

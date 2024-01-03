@@ -151,4 +151,4 @@ M98 P"k/toolhead-leds.g"
 
 M593 P"zvd" F40
 M501
-;M98 P"mmu/lib/init.g"
+M98 P"mmu/lib/init.g"
